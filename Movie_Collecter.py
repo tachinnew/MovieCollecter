@@ -14,7 +14,7 @@ class MovieCollection:
         else:
             result = self.check_insert(self.root, title)
             if result is False:
-                print(f"Error: Movie '{title}' already exists in the collection.")
+                print(f"Error: Movie '{title}' already collected.") 
             else:
                 self.save_to_file(title)  
 
@@ -208,3 +208,5 @@ def search_menu():
         else:
             print("Movie not found")
             main_menu()
+
+main_menu()
