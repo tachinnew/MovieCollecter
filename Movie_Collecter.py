@@ -48,8 +48,12 @@ class MovieCollection:
             return self.check_search(node.right, title)
 
     def delete(self, title):
-        self.root = self.check_delete(self.root, title)
-        self.delete_from_file(title)  
+        if self.search(title):
+            self.root = self.check_delete(self.root, title)
+            self.delete_from_file(title)
+            print(f"Movie : '{title}' was deleted")
+        else:
+            print(f"Error: Movie '{title}' is not in the list")
 
     def check_delete(self, node, title):
         if node is None:
@@ -173,7 +177,6 @@ def delete_menu():
     print("Which Movie you want to delete")
     ans = input("")
     movie_collection.delete(ans)
-    print(f" {ans} has been delete")
     main_menu()
 
 def search_menu():
